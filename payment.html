@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>테스트 결제 | 마지막 편지</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      padding: 48px 24px;
+      display: grid;
+      place-items: center;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.8;
+    }
+
+    main { width: 100%; max-width: 460px; }
+
+    .back {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .card {
+      margin-top: 24px;
+      padding: 32px 24px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #28334c;
+      color: #bacbff;
+      font-size: 12px;
+    }
+
+    h1 { margin: 20px 0 8px; font-size: 28px; }
+
+    .description { color: #aaa; font-size: 15px; }
+
+    .order {
+      margin: 28px 0;
+      padding: 20px 0;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .order p {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .order span { color: #aaa; }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { background: #ddd; }
+
+    button:disabled {
+      background: #28334c;
+      color: #bacbff;
+      cursor: default;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #a9beff;
+      outline-offset: 5px;
+    }
+
+    .result { margin: 20px 0 0; color: #bacbff; }
+
+    .notice {
+      margin-top: 20px;
+      color: #999;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <a class="back" href="./index.html">← 작품 소개로 돌아가기</a>
+
+    <section class="card" aria-labelledby="title">
+      <span class="badge">TEST MODE</span>
+      <h1 id="title">테스트 결제</h1>
+
+      <p class="description">
+        구매 화면을 체험해보세요.<br>
+        카드 정보 입력이나 실제 청구는 없습니다.
+      </p>
+
+      <div class="order">
+        <p><span>작품</span><strong>마지막 편지</strong></p>
+        <p><span>상품</span><strong>대본 PDF</strong></p>
+        <p><span>테스트 금액</span><strong>US$0.00</strong></p>
+      </div>
+
+      <button id="test-button" type="button">
+        테스트 구매 완료하기
+      </button>
+
+      <p id="result" class="result" role="status"></p>
+    </section>
+
+    <p class="notice">
+      이 화면은 결제대행사와 연결되어 있지 않습니다.<br>
+      실제 주문 생성이나 파일 다운로드는 진행되지 않습니다.
+    </p>
+  </main>
+
+  <script>
+    const button = document.getElementById("test-button");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", () => {
+      result.textContent =
+        "테스트가 완료되었습니다. 실제 결제는 발생하지 않았습니다.";
+      button.textContent = "테스트 완료";
+      button.disabled = true;
+    });
+  </script>
+</body>
+</html>
